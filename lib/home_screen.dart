@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_task/provider.dart';
 import 'package:provider/provider.dart';
 
@@ -60,39 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 context.read<DisplayImageProvider>().uploadImageFromInternet();
               },
               child: GestureDetector(
-                // onPanUpdate: (details) {
-                //   if(details.delta.dx > 0) {
-                //     print('Right... ${details.delta.dx}');
-                //
-                //     double dxValue = details.delta.dx;
-                //
-                //     x = dxValue.round();
-                //
-                //     print('x value is $x');
-                //     setState(() {});
-                //
-                //   } else if(details.delta.dx < 0) {
-                //     print('Left.... ${details.delta.dx}');
-                //     double dxValue = details.delta.dx;
-                //
-                //     x = -dxValue.round();
-                //
-                //     print('x value is $x');
-                //     setState(() {});
-                //   }
-                // },
 
                 onHorizontalDragUpdate: (details) {
                   int sensitity = 8;
                   if (details.delta.dx > sensitity) {
-                    print('Right... ${details.delta.dx}');
-
                     double dxValue = details.delta.dx;
                     x = dxValue.round();
 
                     setState(() {});
                   } else if (details.delta.dx < -sensitity) {
-                    print('Left... ${details.delta.dx}');
                     double dxValue = details.delta.dx;
                     x = dxValue.round();
 
